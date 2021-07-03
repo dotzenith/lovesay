@@ -7,7 +7,7 @@ lovesay is a simple and lightweight python script that displays a quote from a l
 ### Requirements
 
 - python3 or greater
-- termcolor python library:
+- termcolor for python:
 ```pip install termcolor```
 or
 ```pip3 install termcolor```
