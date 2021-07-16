@@ -1,6 +1,6 @@
 # ZenithDS
 # Lovesay: A script to display a quote from a loved one based on the day of the month
-# Last edit July 2nd, 2021
+# Last edit July 16th, 2021
 
 # Importing the expanduser function which will be used to get the home directory
 from os.path import expanduser
