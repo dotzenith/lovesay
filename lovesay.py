@@ -38,61 +38,39 @@ maxWidth = cols
 if maxWidth // 2 != 0:
     maxWidth -= 1
 
-
 # The original intention of this script was to display a different quote for every day of the month
 # This segment simply assigns a quote based on the date. 
 
 today = date.today()
 todayDate = int(today.strftime("%d"))
 
-finalQuote = tr.wrap(quotes[(todayDate - 1)], width = (maxWidth - 25))
+quotesList = tr.wrap(quotes[(todayDate - 1)], width = (maxWidth - 25))
 
+# Making some hearts
+redHeart = colored("\u2665", "red")
+magentaHeart = colored("\u2665", "magenta")
+blueHeart = colored("\u2665", "blue")
+cyanHeart = colored("\u2665", "cyan")
+greenHeart = colored("\u2665", "green")
+yellowHeart = colored("\u2665", "yellow")
 
-# Printing out the heart and the quote side to side turned out to be harder than I thought it would be.
-# I couldn't use a neat little for loop, atleast to my knwoledge. 
-# So, the lines of code follwing this comment block are likely an absolute mess, but they print out a beautiful heart
-# I promise.
+# The intended function is to print at most, five lines, so I made a list with five strings,
+# that will be filled in accordingly. 
 
+linesList = ["", "", "", "", ""]
 
-# Prints out the first line of the heart
-print(colored(("   {} {}   {} {}   ".format("\u2665","\u2665","\u2665","\u2665")), "red"), end='')
+for q in range(len(quotesList)):
+    linesList[q] = f"{redHeart} {quotesList[q]} {redHeart}"
 
-# Prints out the second line of the heart as well as the first line of the quote
-# This first one doesn't have a an error catcher since all quotes have atleast one line
-print(colored(("\n {}     {}     {}".format("\u2665","\u2665","\u2665")), "magenta"), end='')
-print("      {} {} {}".format((colored("\u2665", "red")), (finalQuote[0]), (colored("\u2665", "red"))), end='')
+# Printing out the big heart with the quote
+bigHeart = f"   {redHeart} {redHeart}   {redHeart} {redHeart}   " \
+           f"\n {magentaHeart}     {magentaHeart}     {magentaHeart}      {linesList[0]}" \
+           f"\n {blueHeart}           {blueHeart}      {linesList[1]}" \
+           f"\n   {cyanHeart}       {cyanHeart}        {linesList[2]}" \
+           f"\n     {greenHeart}   {greenHeart}          {linesList[3]}" \
+           f"\n       {yellowHeart}            {linesList[4]}"
 
-# All the lines of the heart and the quote after this point have error catchers because 
-# I wasn't exactly sure how else to make sure that all lines of the qoute were printed out. 
-# The program simply tries to print out the next line in the list, and if there is none, it prints nothing. 
-
-# This particular segment is for the third line
-print(colored(("\n {}           {}".format("\u2665","\u2665")), "blue"), end='')
-try:
-    print("      {} {} {}".format((colored("\u2665", "red")), (finalQuote[1]), (colored("\u2665", "red"))), end='')
-except IndexError:
-    print('', end='')
-
-# This segment is for the fourth line
-print(colored(("\n   {}       {}   ".format("\u2665","\u2665")), "cyan"), end='')
-try:
-    print("     {} {} {}".format((colored("\u2665", "red")), (finalQuote[2]), (colored("\u2665", "red"))), end='')
-except IndexError:
-    print('', end='')
-
-# This segment is for the fifth line
-print(colored(("\n     {}   {}     ".format("\u2665","\u2665")), "green"), end='')
-try:
-    print("     {} {} {}".format((colored("\u2665", "red")), (finalQuote[3]), (colored("\u2665", "red"))), end='')
-except IndexError:
-    print('', end='')
-
-# This segment is for the sixth line
-print(colored(("\n       {}       ".format("\u2665")), "yellow"), end='')
-try:
-    print("     {} {} {}".format((colored("\u2665", "red")), (finalQuote[4]), (colored("\u2665", "red"))), end='')
-except IndexError:
-    print('')
+print(bigHeart)
 
 # This marks the end of the script
 
@@ -100,3 +78,4 @@ except IndexError:
 # I got tired of only using programming for boring old programming assignments so here we are. 
 # I have a long way to go and I guess this is just the starting, I just hope that one day,
 # when I look back this code, I'm actually proud of myself instead of being embarrassed. 
+
