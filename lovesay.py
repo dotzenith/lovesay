@@ -28,7 +28,7 @@ filePath = "{}/.config/quotes".format(home)
 with open(filePath) as quotesFile:
     quotes = [ quote.rstrip() for quote in quotesFile ]
 
-# Getting the number of columns and rows to make sure the quoute looks presentable on most terminal window sizes
+# Getting the number of columns and rows to make sure the quote looks presentable on most terminal window sizes
 cols, rows = os.get_terminal_size()
 
 # Making a max width variable to avoid confusion later on 
