@@ -22,7 +22,7 @@ home = expanduser('~')
 
 # setting the path for the quotes files
 # The default is ~/.config/quotes
-filePath = "{}/.config/quotes".format(home)
+filePath = "{}/.config/lovesay/quotes".format(home)
 
 # opening the quotes file, storing each quote in a list, and then closing the file
 with open(filePath) as quotesFile:

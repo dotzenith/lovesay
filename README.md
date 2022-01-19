@@ -21,7 +21,7 @@ lovesay is a very simple script, once all the requirements are taken care of, it
 ```
 python3 /path/to/lovesay.py
 ```
-by default, it checks for the quotes file at ```.config/quotes``` but that can be changed quite easily in the script itself
+by default, it checks for the quotes file at ```.config/lovesay/quotes``` but that can be changed quite easily in the script itself
 
 ### About lovesay
 
