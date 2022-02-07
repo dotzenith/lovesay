@@ -33,8 +33,8 @@
 ```pip install termcolor```
 or
 ```pip3 install termcolor```
-- A quotes file stored in the .config folder
-- Each quote must be on a new line, see the example quotes file in .config/lovesay/quotes
+- A quotes file stored in `.config/lovesay/`
+- Each quote must be on a new line, see the example quotes file in `.config/lovesay/quotes`
 - (optional) A partner to write you 31 lines full of love, one for each day of the month
 
 ---
