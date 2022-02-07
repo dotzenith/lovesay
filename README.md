@@ -23,6 +23,7 @@
   lovesay is a simple and lightweight python script that displays a quote from a loved one based on the day of the month 
 
   <img src="assets/lovesay.gif" alt="lovesay gif">
+
 ---
 
 ### ❖ Requirements 
@@ -57,4 +58,8 @@ Seeing words full of love from my partner is a lot better than any other command
 I hope that someone else finds a use for this little script as well. Love is a wonderful thing, and we could all use a little bit more of it in our lives (especially arch linux users)
 
 ---
-   <img src="https://img.shields.io/static/v1.svg?label=License&message=MIT&color=F5E0DC&labelColor=302D41&style=for-the-badge" align="center">
+<div align="center">
+
+   <img src="https://img.shields.io/static/v1.svg?label=License&message=MIT&color=F5E0DC&labelColor=302D41&style=for-the-badge">
+
+</div>
