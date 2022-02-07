@@ -1,4 +1,3 @@
-<h2 align="center"> lovesay </h2>
 <h2 align="center"> ━━━━━━  ❖  ━━━━━━ </h2>
 
 <!-- BADGES -->
@@ -20,9 +19,11 @@
 ---
 
 ### ❖ Information 
-  <img src="assets/lovesay.gif" alt="lovesay gif" align="right" width="400px">
+  <img src="assets/lovesay.gif" alt="lovesay gif">
 
   lovesay is a simple and lightweight python script that displays a quote from a loved one based on the day of the month 
+
+---
 
 ### ❖ Requirements 
 
@@ -34,6 +35,8 @@ or
 - A quotes file stored in the .config folder
 - Each quote must be on a new line, see the example quotes file in .config/lovesay/quotes
 - (optional) A partner to write you 31 lines full of love, one for each day of the month
+
+---
 
 ### ❖ Usage 
 
