@@ -1,76 +1,89 @@
+#!/usr/bin/env python3
+
 # ZenithDS
 # Lovesay: A script to display a quote from a loved one based on the day of the month
-# Last edit July 16th, 2021
+# Last edit Feb 16th, 2022
 
-# Importing the expanduser function which will be used to get the home directory
-from os.path import expanduser
-
-# Importing the os library to make a few things easier later on
+# Imports to make life easier 
+from os.path import expanduser, exists
 import os 
-
-# Importing textwrap, which will be used to display information nicely
 import textwrap as tr
-
-# Importing colored function from termcolor to output color to the terminal
 from termcolor import colored
-
-# Importing date function from datetime to help with quote assignment based on the day
 from datetime import date
 
-# getting the home directory to read the quotes file from
-home = expanduser('~')
+def get_file_path():
 
-# setting the path for the quotes files
-# The default is ~/.config/quotes
-filePath = "{}/.config/lovesay/quotes".format(home)
+    home = expanduser('~')
+    filePath = f"{home}/.config/lovesay/quotes"
+    
+    return filePath
 
-# opening the quotes file, storing each quote in a list, and then closing the file
-with open(filePath) as quotesFile:
-    quotes = [ quote.rstrip() for quote in quotesFile ]
+def get_max_width():
+    
+    cols, rows = os.get_terminal_size()
 
-# Getting the number of columns and rows to make sure the quote looks presentable on most terminal window sizes
-cols, rows = os.get_terminal_size()
+    if cols // 2 != 0:
+        cols -= 1
+    
+    return cols
+    
+def generate_quote(file_path):
+    
+    with open(file_path) as quotesFile:
+        quotes = [ quote.rstrip() for quote in quotesFile ]
 
-# Making a max width variable to avoid confusion later on 
-maxWidth = cols
+    maxWidth = get_max_width()
 
-# getting a nice even number for the max width to make things easier to work with
-if maxWidth // 2 != 0:
-    maxWidth -= 1
+    today = date.today()
+    todayDate = int(today.strftime("%d"))
 
-# The original intention of this script was to display a different quote for every day of the month
-# This segment simply assigns a quote based on the date. 
+    quotesList = tr.wrap(quotes[(todayDate - 1)], width = (maxWidth - 25))
 
-today = date.today()
-todayDate = int(today.strftime("%d"))
+    return quotesList
 
-quotesList = tr.wrap(quotes[(todayDate - 1)], width = (maxWidth - 25))
+def format_quote(quotes_list):
 
-# Making some hearts
-redHeart = colored("\u2665", "red")
-magentaHeart = colored("\u2665", "magenta")
-blueHeart = colored("\u2665", "blue")
-cyanHeart = colored("\u2665", "cyan")
-greenHeart = colored("\u2665", "green")
-yellowHeart = colored("\u2665", "yellow")
+    filePath = get_file_path()
+    quoteList = ["", "", "", "", ""]
+    redHeart = colored("\u2665", "red")
 
-# The intended function is to print at most, five lines, so I made a list with five strings,
-# that will be filled in accordingly. 
+    # A few logic checks right here to decide if the quote should be printed or not
+    file_exists = exists(filePath)
+    good_width = get_max_width() >= 52
+    good_quote_length = len(generate_quote(filePath)) <= 5
 
-linesList = ["", "", "", "", ""]
+    if file_exists and good_width and good_quote_length:
+        for q in range(len(quotes_list)):
+            quoteList[q] = f"{redHeart} {quotes_list[q]} {redHeart}"
 
-for q in range(len(quotesList)):
-    linesList[q] = f"{redHeart} {quotesList[q]} {redHeart}"
+    return quoteList
 
-# Printing out the big heart with the quote
-bigHeart = f"   {redHeart} {redHeart}   {redHeart} {redHeart}   " \
-           f"\n {magentaHeart}     {magentaHeart}     {magentaHeart}      {linesList[0]}" \
-           f"\n {blueHeart}           {blueHeart}      {linesList[1]}" \
-           f"\n   {cyanHeart}       {cyanHeart}        {linesList[2]}" \
-           f"\n     {greenHeart}   {greenHeart}          {linesList[3]}" \
-           f"\n       {yellowHeart}            {linesList[4]}"
+def main():
 
-print(bigHeart)
+    # Setting up the things needed for the output
+    filePath = get_file_path()
+    quoteList = format_quote(generate_quote(filePath))
+    
+    # Making some hearts
+    redHeart = colored("\u2665", "red")
+    magentaHeart = colored("\u2665", "magenta")
+    blueHeart = colored("\u2665", "blue")
+    cyanHeart = colored("\u2665", "cyan")
+    greenHeart = colored("\u2665", "green")
+    yellowHeart = colored("\u2665", "yellow")
+
+    bigHeart = f"   {redHeart} {redHeart}   {redHeart} {redHeart}   " \
+               f"\n {magentaHeart}     {magentaHeart}     {magentaHeart}      {quoteList[0]}" \
+               f"\n {blueHeart}           {blueHeart}      {quoteList[1]}" \
+               f"\n   {cyanHeart}       {cyanHeart}        {quoteList[2]}" \
+               f"\n     {greenHeart}   {greenHeart}          {quoteList[3]}" \
+               f"\n       {yellowHeart}            {quoteList[4]}"
+
+
+    print(bigHeart)
+
+if __name__ == "__main__":
+    main()
 
 # This marks the end of the script
 
@@ -78,4 +91,3 @@ print(bigHeart)
 # I got tired of only using programming for boring old programming assignments so here we are. 
 # I have a long way to go and I guess this is just the starting, I just hope that one day,
 # when I look back this code, I'm actually proud of myself instead of being embarrassed. 
-
