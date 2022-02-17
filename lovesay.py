@@ -37,7 +37,10 @@ def generate_quote(file_path):
     today = date.today()
     todayDate = int(today.strftime("%d"))
 
-    quotesList = tr.wrap(quotes[(todayDate - 1)], width = (maxWidth - 25))
+    try:
+        quotesList = tr.wrap(quotes[(todayDate - 1)], width = (maxWidth - 25))
+    except ValueError:
+        quotesList = ["", "", "", "", ""]
 
     return quotesList
 
