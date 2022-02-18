@@ -2,7 +2,7 @@
 
 # ZenithDS
 # Lovesay: A script to display a quote from a loved one based on the day of the month
-# Last edit Feb 16th, 2022
+# Last edit Feb 18th, 2022
 
 # Imports to make life easier 
 from os.path import expanduser, exists
@@ -29,17 +29,22 @@ def get_max_width():
     
 def generate_quote(file_path):
     
-    with open(file_path) as quotesFile:
-        quotes = [ quote.rstrip() for quote in quotesFile ]
+    file_exists = exists(file_path)
+   
+    if file_exists:
+        with open(file_path) as quotesFile:
+            quotes = [ quote.rstrip() for quote in quotesFile ]
+        
+        maxWidth = get_max_width()
 
-    maxWidth = get_max_width()
+        today = date.today()
+        todayDate = int(today.strftime("%d"))
 
-    today = date.today()
-    todayDate = int(today.strftime("%d"))
-
-    try:
-        quotesList = tr.wrap(quotes[(todayDate - 1)], width = (maxWidth - 25))
-    except ValueError:
+        try:
+            quotesList = tr.wrap(quotes[(todayDate - 1)], width = (maxWidth - 25))
+        except ValueError:
+            quotesList = ["", "", "", "", ""]
+    else: 
         quotesList = ["", "", "", "", ""]
 
     return quotesList

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "lovesay"
-version = "0.1.0"
+version = "0.1.1"
 description = "Cowsay, but full of love"
 authors = ["ZenithDS"]
 license = "MIT"
