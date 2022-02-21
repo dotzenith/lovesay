@@ -65,11 +65,11 @@ $ lovesay nord # uses nord
 ```
 
 Supported color schemes as of now: 
-> [catppuccin](https://github.com/catppuccin)
-> [nord](https://github.com/arcticicestudio/nord)
-> [dracula](https://github.com/dracula/dracula-theme)
-> [gruvbox](https://github.com/morhetz/gruvbox)
-> [onedark](https://github.com/joshdick/onedark.vim)
+- [catppuccin](https://github.com/catppuccin)
+- [nord](https://github.com/arcticicestudio/nord)
+- [dracula](https://github.com/dracula/dracula-theme)
+- [gruvbox](https://github.com/morhetz/gruvbox)
+- [onedark](https://github.com/joshdick/onedark.vim)
 
 by default, lovesay checks for the quotes file at `$HOME/.config/lovesay/quotes` if there is nothing there, it will just print out a heart with no quote
 
