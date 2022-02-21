@@ -28,8 +28,8 @@
 
 ### ❖ Requirements 
 
-- A quotes file stored in `.config/lovesay/`
-- Each quote must be on a new line, see the example quotes file in `.config/lovesay/quotes`
+- A quotes file stored in `$HOME/.config/lovesay/`
+- Each quote must be on a new line, see the example quotes file in `$HOME/.config/lovesay/quotes`
 - (optional) A partner to write you 31 lines full of love, one for each day of the month
 
 ---
@@ -51,12 +51,27 @@ $ poetry install
 
 ### ❖ Usage 
 
-lovesay is a very simple script, it has no args or options, it can be used simply by running:
+lovesay can be used with a variety of different color schemes.
 
+> lovesay uses [catppuccin](https://github.com/catppuccin) as it's default color scheme, but a different one can be specified using a positional argument. 
+
+For example:
 ```sh
-$ lovesay
+$ lovesay # uses catppuccin
 ```
-by default, it checks for the quotes file at `$HOME/.config/lovesay/quotes` if there is nothing there, it will just print out a heart with no quote
+  
+```sh
+$ lovesay nord # uses nord 
+```
+
+Supported color schemes as of now: 
+> [catppuccin](https://github.com/catppuccin)
+> [nord](https://github.com/arcticicestudio/nord)
+> [dracula](https://github.com/dracula/dracula-theme)
+> [gruvbox](https://github.com/morhetz/gruvbox)
+> [onedark](https://github.com/joshdick/onedark.vim)
+
+by default, lovesay checks for the quotes file at `$HOME/.config/lovesay/quotes` if there is nothing there, it will just print out a heart with no quote
 
 ---
 
@@ -71,7 +86,7 @@ I hope that someone else finds a use for this little script as well. Love is a w
 ---
 
 ### ❖ What's New? 
-0.1.2 - an update to the colors
+0.2.1 - lovesay now has themes :)
 
 ---
 

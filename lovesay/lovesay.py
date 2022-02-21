@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 # ZenithDS
 # Lovesay: A script to display a quote from a loved one based on the day of the month
 # Last edit Feb 18th, 2022
@@ -50,7 +48,7 @@ def generate_quote(file_path):
 
     return quotesList
 
-def format_quote(quotes_list, red):
+def format_quote(quotes_list, red, white):
 
     filePath = get_file_path()
     quoteList = ["", "", "", "", ""]
@@ -62,16 +60,21 @@ def format_quote(quotes_list, red):
 
     if file_exists and good_width and good_quote_length:
         for q in range(len(quotes_list)):
-            quoteList[q] = f"{red} {quotes_list[q]} {red}"
+            quoteList[q] = f"{red} [{white}]{quotes_list[q]}[/{white}] {red}"
 
     return quoteList
 
-def main(color_name="catppuccin"):
+def main(color_name):
     
     # Setting up the colors
-    theme = colors[color_name]
+    color_name = color_name.lower()
+    if color_name in colors.keys():
+        theme = colors[color_name]
+    else:
+        theme = colors['catppuccin']
+
     REDHEART = f"[{theme['red']}]\u2665[/{theme['red']}]"
-    MAGENTAHEART = f"[{theme['magenta']}]\u2665[/{theme['magenta']}]"
+    PURPLEHEART = f"[{theme['purple']}]\u2665[/{theme['purple']}]"
     BLUEHEART = f"[{theme['blue']}]\u2665[/{theme['blue']}]"
     GREENHEART = f"[{theme['green']}]\u2665[/{theme['green']}]"
     ORANGEHEART = f"[{theme['orange']}]\u2665[/{theme['orange']}]"
@@ -79,10 +82,10 @@ def main(color_name="catppuccin"):
 
     # Setting up the things needed for the output
     filePath = get_file_path()
-    quoteList = format_quote(generate_quote(filePath), REDHEART)
+    quoteList = format_quote(generate_quote(filePath), REDHEART, theme['white'])
 
     bigHeart = f"   {REDHEART} {REDHEART}   {REDHEART} {REDHEART}   " \
-               f"\n {MAGENTAHEART}     {MAGENTAHEART}     {MAGENTAHEART}      {quoteList[0]}" \
+               f"\n {PURPLEHEART}     {PURPLEHEART}     {PURPLEHEART}      {quoteList[0]}" \
                f"\n {BLUEHEART}           {BLUEHEART}      {quoteList[1]}" \
                f"\n   {GREENHEART}       {GREENHEART}        {quoteList[2]}" \
                f"\n     {ORANGEHEART}   {ORANGEHEART}          {quoteList[3]}" \
@@ -92,7 +95,7 @@ def main(color_name="catppuccin"):
     print(bigHeart)
 
 if __name__ == "__main__":
-    main()
+    main('catppuccin')
 
 # This marks the end of the script
 
