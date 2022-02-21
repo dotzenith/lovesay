@@ -8,8 +8,9 @@
 from os.path import expanduser, exists
 import os 
 import textwrap as tr
-from termcolor import colored
 from datetime import date
+from rich import print
+from lovesay.colors import colors
 
 def get_file_path():
 
@@ -49,11 +50,10 @@ def generate_quote(file_path):
 
     return quotesList
 
-def format_quote(quotes_list):
+def format_quote(quotes_list, red):
 
     filePath = get_file_path()
     quoteList = ["", "", "", "", ""]
-    redHeart = colored("\u2665", "red")
 
     # A few logic checks right here to decide if the quote should be printed or not
     file_exists = exists(filePath)
@@ -62,30 +62,31 @@ def format_quote(quotes_list):
 
     if file_exists and good_width and good_quote_length:
         for q in range(len(quotes_list)):
-            quoteList[q] = f"{redHeart} {quotes_list[q]} {redHeart}"
+            quoteList[q] = f"{red} {quotes_list[q]} {red}"
 
     return quoteList
 
-def main():
+def main(color_name="catppuccin"):
+    
+    # Setting up the colors
+    theme = colors[color_name]
+    REDHEART = f"[{theme['red']}]\u2665[/{theme['red']}]"
+    MAGENTAHEART = f"[{theme['magenta']}]\u2665[/{theme['magenta']}]"
+    BLUEHEART = f"[{theme['blue']}]\u2665[/{theme['blue']}]"
+    GREENHEART = f"[{theme['green']}]\u2665[/{theme['green']}]"
+    ORANGEHEART = f"[{theme['orange']}]\u2665[/{theme['orange']}]"
+    YELLOWHEART = f"[{theme['yellow']}]\u2665[/{theme['yellow']}]"
 
     # Setting up the things needed for the output
     filePath = get_file_path()
-    quoteList = format_quote(generate_quote(filePath))
-    
-    # Making some hearts
-    redHeart = colored("\u2665", "red")
-    magentaHeart = colored("\u2665", "magenta")
-    blueHeart = colored("\u2665", "blue")
-    cyanHeart = colored("\u2665", "cyan")
-    greenHeart = colored("\u2665", "green")
-    yellowHeart = colored("\u2665", "yellow")
+    quoteList = format_quote(generate_quote(filePath), REDHEART)
 
-    bigHeart = f"   {redHeart} {redHeart}   {redHeart} {redHeart}   " \
-               f"\n {magentaHeart}     {magentaHeart}     {magentaHeart}      {quoteList[0]}" \
-               f"\n {blueHeart}           {blueHeart}      {quoteList[1]}" \
-               f"\n   {cyanHeart}       {cyanHeart}        {quoteList[2]}" \
-               f"\n     {greenHeart}   {greenHeart}          {quoteList[3]}" \
-               f"\n       {yellowHeart}            {quoteList[4]}"
+    bigHeart = f"   {REDHEART} {REDHEART}   {REDHEART} {REDHEART}   " \
+               f"\n {MAGENTAHEART}     {MAGENTAHEART}     {MAGENTAHEART}      {quoteList[0]}" \
+               f"\n {BLUEHEART}           {BLUEHEART}      {quoteList[1]}" \
+               f"\n   {GREENHEART}       {GREENHEART}        {quoteList[2]}" \
+               f"\n     {ORANGEHEART}   {ORANGEHEART}          {quoteList[3]}" \
+               f"\n       {YELLOWHEART}            {quoteList[4]}"
 
 
     print(bigHeart)

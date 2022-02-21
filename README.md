@@ -71,7 +71,7 @@ I hope that someone else finds a use for this little script as well. Love is a w
 ---
 
 ### ❖ What's New? 
-0.1.1 - fixed a minor issue for missing quotes file
+0.1.2 - an update to the colors
 
 ---
 
