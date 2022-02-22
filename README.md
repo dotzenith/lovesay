@@ -70,6 +70,11 @@ Supported color schemes as of now:
 - [dracula](https://github.com/dracula/dracula-theme)
 - [gruvbox](https://github.com/morhetz/gruvbox)
 - [onedark](https://github.com/joshdick/onedark.vim)
+- [tokyonight](https://github.com/folke/tokyonight.nvim)
+- [rose pine](https://rosepinetheme.com/)
+- [ayu](https://github.com/ayu-theme)
+- [palenight](https://github.com/drewtempelmeyer/palenight.vim)
+- [gogh](https://github.com/Mayccoll/Gogh)
 
 by default, lovesay checks for the quotes file at `$HOME/.config/lovesay/quotes` if there is nothing there, it will just print out a heart with no quote
 
