@@ -48,7 +48,7 @@ def generate_quote(file_path):
 
     return quotesList
 
-def format_quote(quotes_list, red, white):
+def format_quote(quotes_list, colorOne, fg):
 
     filePath = get_file_path()
     quoteList = ["", "", "", "", ""]
@@ -60,7 +60,7 @@ def format_quote(quotes_list, red, white):
 
     if file_exists and good_width and good_quote_length:
         for q in range(len(quotes_list)):
-            quoteList[q] = f"{red} [{white}]{quotes_list[q]}[/{white}] {red}"
+            quoteList[q] = f"{colorOne} [{fg}]{quotes_list[q]}[/{fg}] {colorOne}"
 
     return quoteList
 
@@ -73,23 +73,23 @@ def main(color_name):
     else:
         theme = colors['catppuccin']
 
-    REDHEART = f"[{theme['red']}]\u2665[/{theme['red']}]"
-    PURPLEHEART = f"[{theme['purple']}]\u2665[/{theme['purple']}]"
-    BLUEHEART = f"[{theme['blue']}]\u2665[/{theme['blue']}]"
-    GREENHEART = f"[{theme['green']}]\u2665[/{theme['green']}]"
-    ORANGEHEART = f"[{theme['orange']}]\u2665[/{theme['orange']}]"
-    YELLOWHEART = f"[{theme['yellow']}]\u2665[/{theme['yellow']}]"
+    ONEHEART = f"[{theme['colorOne']}]\u2665[/{theme['colorOne']}]"
+    TWOHEART = f"[{theme['colorTwo']}]\u2665[/{theme['colorTwo']}]"
+    THREEHEART = f"[{theme['colorThree']}]\u2665[/{theme['colorThree']}]"
+    FOURHEART = f"[{theme['colorFour']}]\u2665[/{theme['colorFour']}]"
+    FIVEHEART = f"[{theme['colorFive']}]\u2665[/{theme['colorFive']}]"
+    SIXHEART = f"[{theme['colorSix']}]\u2665[/{theme['colorSix']}]"
 
     # Setting up the things needed for the output
     filePath = get_file_path()
-    quoteList = format_quote(generate_quote(filePath), REDHEART, theme['white'])
+    quoteList = format_quote(generate_quote(filePath), ONEHEART, theme['fg'])
 
-    bigHeart = f"   {REDHEART} {REDHEART}   {REDHEART} {REDHEART}   " \
-               f"\n {PURPLEHEART}     {PURPLEHEART}     {PURPLEHEART}      {quoteList[0]}" \
-               f"\n {BLUEHEART}           {BLUEHEART}      {quoteList[1]}" \
-               f"\n   {GREENHEART}       {GREENHEART}        {quoteList[2]}" \
-               f"\n     {ORANGEHEART}   {ORANGEHEART}          {quoteList[3]}" \
-               f"\n       {YELLOWHEART}            {quoteList[4]}"
+    bigHeart = f"   {ONEHEART} {ONEHEART}   {ONEHEART} {ONEHEART}   " \
+               f"\n {TWOHEART}     {TWOHEART}     {TWOHEART}      {quoteList[0]}" \
+               f"\n {THREEHEART}           {THREEHEART}      {quoteList[1]}" \
+               f"\n   {FOURHEART}       {FOURHEART}        {quoteList[2]}" \
+               f"\n     {FIVEHEART}   {FIVEHEART}          {quoteList[3]}" \
+               f"\n       {SIXHEART}            {quoteList[4]}"
 
 
     print(bigHeart)
@@ -100,6 +100,6 @@ if __name__ == "__main__":
 # This marks the end of the script
 
 # This was my first attempt at making something nice for myself and perhaps for others,
-# I got tired of only using programming for boring old programming assignments so here we are. 
+# I got ticolorOne of only using programming for boring old programming assignments so here we are. 
 # I have a long way to go and I guess this is just the starting, I just hope that one day,
 # when I look back this code, I'm actually proud of myself instead of being embarrassed. 

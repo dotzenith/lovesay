@@ -86,7 +86,7 @@ I hope that someone else finds a use for this little script as well. Love is a w
 ---
 
 ### ❖ What's New? 
-0.2.1 - lovesay now has themes :)
+0.2.2 - More Themes and changes to themes config :)
 
 ---
 
