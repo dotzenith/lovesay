@@ -29,7 +29,7 @@
 ### ❖ Requirements 
 
 - A quotes file stored in `$HOME/.config/lovesay/`
-- Each quote must be on a new line, see the example quotes file in `$HOME/.config/lovesay/quotes`
+- Each quote must be on a new line, see the example quotes file in `.config/lovesay/quotes`
 - (optional) A partner to write you 31 lines full of love, one for each day of the month
 
 ---
