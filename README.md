@@ -46,7 +46,8 @@ $ pip3 install lovesay
 ```sh
 $ git clone https://github.com/ZenithDS/lovesay.git
 $ cd lovesay
-$ poetry install
+$ poetry build
+$ pip3 install ./dist/lovesay-0.2.3.tar.gz
 ```
 
 ### ❖ Usage 
@@ -91,7 +92,7 @@ I hope that someone else finds a use for this little script as well. Love is a w
 ---
 
 ### ❖ What's New? 
-0.2.2 - More Themes and changes to themes config :)
+0.2.3 - a few bug fixes
 
 ---
 

@@ -41,10 +41,10 @@ def generate_quote(file_path):
 
         try:
             quotesList = tr.wrap(quotes[(todayDate - 1)], width = (maxWidth - 25))
-        except ValueError:
-            quotesList = ["", "", "", "", ""]
+        except (ValueError, IndexError):
+            quotesList = None
     else: 
-        quotesList = ["", "", "", "", ""]
+        quotesList = None
 
     return quotesList
 
@@ -52,6 +52,9 @@ def format_quote(quotes_list, colorOne, fg):
 
     filePath = get_file_path()
     quoteList = ["", "", "", "", ""]
+    
+    if quotes_list is None:
+        return quoteList    
 
     # A few logic checks right here to decide if the quote should be printed or not
     file_exists = exists(filePath)
