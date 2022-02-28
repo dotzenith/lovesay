@@ -31,7 +31,7 @@ def generate_quote(file_path):
    
     if file_exists:
         with open(file_path) as quotesFile:
-            quotes = [ quote.rstrip() for quote in quotesFile ]
+            quotes = [ quote.strip() for quote in quotesFile ]
         
         maxWidth = get_max_width()
 
@@ -40,8 +40,10 @@ def generate_quote(file_path):
 
         try:
             quotesList = tr.wrap(quotes[(todayDate - 1)], width = (maxWidth - 25))
-        except (ValueError, IndexError):
+        except ValueError:
             quotesList = None
+        except IndexError:
+            quotesList = ["No quote found for today, here's a hug :)"]
     else: 
         quotesList = None
 
@@ -49,24 +51,22 @@ def generate_quote(file_path):
 
 def format_quote(quotes_list, colorOne, fg):
 
-    filePath = get_file_path()
     quoteList = ["", "", "", "", ""]
     
     if quotes_list is None:
         return quoteList    
 
     # A few logic checks right here to decide if the quote should be printed or not
-    file_exists = exists(filePath)
     good_width = get_max_width() >= 52
-    good_quote_length = len(generate_quote(filePath)) <= 5
+    good_quote_length = len(quotes_list) <= 5
 
-    if file_exists and good_width and good_quote_length:
+    if good_width and good_quote_length:
         for q in range(len(quotes_list)):
-            quoteList[q] = f"{colorOne} [{fg}]{quotes_list[q]}[/{fg}] {colorOne}"
+            quoteList[q] = f"{colorOne} [{fg}]{quotes_list[q].strip()}[/{fg}] {colorOne}"
 
     return quoteList
 
-def main(color_name):
+def main(quote, color_name):
     
     # Setting up the colors
     color_name = color_name.lower()
@@ -74,7 +74,8 @@ def main(color_name):
         theme = colors[color_name]
     else:
         theme = colors['catppuccin']
-
+    
+    # Setting up the hearts 
     ONEHEART = f"[{theme['colorOne']}]\u2665[/{theme['colorOne']}]"
     TWOHEART = f"[{theme['colorTwo']}]\u2665[/{theme['colorTwo']}]"
     THREEHEART = f"[{theme['colorThree']}]\u2665[/{theme['colorThree']}]"
@@ -83,8 +84,12 @@ def main(color_name):
     SIXHEART = f"[{theme['colorSix']}]\u2665[/{theme['colorSix']}]"
 
     # Setting up the things needed for the output
-    filePath = get_file_path()
-    quoteList = format_quote(generate_quote(filePath), ONEHEART, theme['fg'])
+    if quote is None:
+        raw_quote = generate_quote(get_file_path())
+    else:
+        raw_quote = [f"{quote}"]
+
+    quoteList = format_quote(raw_quote, ONEHEART, theme['fg'])
 
     bigHeart = f"   {ONEHEART} {ONEHEART}   {ONEHEART} {ONEHEART}   " \
                f"\n {TWOHEART}     {TWOHEART}     {TWOHEART}      {quoteList[0]}" \
@@ -97,7 +102,7 @@ def main(color_name):
     print(bigHeart)
 
 if __name__ == "__main__":
-    main('catppuccin')
+    main("", 'catppuccin')
 
 # This marks the end of the script
 

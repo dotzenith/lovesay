@@ -20,13 +20,15 @@
 
 ### ❖ Information 
 
-  lovesay is a simple and lightweight python script that displays a quote from a loved one based on the day of the month 
+  lovesay is a simple python script that displays a quote from a loved one based on the day of the month or a quote passed in through the cli arguments. 
 
   <img src="assets/lovesay.gif" alt="lovesay gif">
 
 ---
 
-### ❖ Requirements 
+### ❖ Requirements
+
+Note: These requirements only apply if using you're using lovesay to print a different quote for each day of the month.  
 
 - A quotes file stored in `$HOME/.config/lovesay/`
 - Each quote must be on a new line, see the example quotes file in `.config/lovesay/quotes`
@@ -47,12 +49,24 @@ $ pip3 install lovesay
 $ git clone https://github.com/ZenithDS/lovesay.git
 $ cd lovesay
 $ poetry build
-$ pip3 install ./dist/lovesay-0.2.3.tar.gz
+$ pip3 install ./dist/lovesay-0.2.4.tar.gz
 ```
 
 ### ❖ Usage 
 
-lovesay can be used with a variety of different color schemes.
+lovesay can be used in a similar fashion to cowsay
+
+```sh
+$ lovesay "Hello World"
+```
+
+if there is a quotes file in `$HOME/.config/lovesay/`, lovesay can be used without any arguments
+
+```sh
+$ lovesay
+```
+
+lovesay can also be used with a variety of different color schemes.
 
 > lovesay uses [catppuccin](https://github.com/catppuccin) as it's default color scheme, but a different one can be specified using a positional argument. 
 
@@ -62,7 +76,7 @@ $ lovesay # uses catppuccin
 ```
   
 ```sh
-$ lovesay nord # uses nord 
+$ lovesay -c nord # uses nord 
 ```
 
 Supported color schemes as of now: 
@@ -92,7 +106,7 @@ I hope that someone else finds a use for this little script as well. Love is a w
 ---
 
 ### ❖ What's New? 
-0.2.3 - a few bug fixes
+0.2.4 - Added the ability to print quotes without a file
 
 ---
 
