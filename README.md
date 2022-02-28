@@ -91,7 +91,7 @@ Supported color schemes as of now:
 - [palenight](https://github.com/drewtempelmeyer/palenight.vim)
 - [gogh](https://github.com/Mayccoll/Gogh)
 
-by default, lovesay checks for the quotes file at `$HOME/.config/lovesay/quotes` if there is nothing there, it will just print out a heart with no quote
+by default, lovesay checks for the quotes file at `$HOME/.config/lovesay/quotes` if there is nothing there and no quote is given using the cli args, it will just print out a heart with no quote
 
 ---
 
