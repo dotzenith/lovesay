@@ -1,6 +1,5 @@
 # ZenithDS
 # Lovesay: A script to display a quote from a loved one based on the day of the month
-# Last edit Feb 18th, 2022
 
 # Imports to make life easier 
 from os.path import expanduser, exists
@@ -103,6 +102,6 @@ if __name__ == "__main__":
 # This marks the end of the script
 
 # This was my first attempt at making something nice for myself and perhaps for others,
-# I got ticolorOne of only using programming for boring old programming assignments so here we are. 
+# I got tired of only using programming for boring old programming assignments so here we are. 
 # I have a long way to go and I guess this is just the starting, I just hope that one day,
 # when I look back this code, I'm actually proud of myself instead of being embarrassed. 
