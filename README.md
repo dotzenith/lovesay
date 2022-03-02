@@ -68,7 +68,7 @@ $ lovesay
 
 lovesay can also be used with a variety of different color schemes.
 
-> lovesay uses [catppuccin](https://github.com/catppuccin) as it's default color scheme, but a different one can be specified using a positional argument. 
+> lovesay uses [catppuccin](https://github.com/catppuccin) as it's default color scheme, but a different one can be specified using the `--color` option. 
 
 For example:
 ```sh
