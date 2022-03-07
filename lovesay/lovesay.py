@@ -3,7 +3,7 @@
 
 # Imports to make life easier 
 from os.path import expanduser, exists
-import os 
+import shutil 
 import textwrap as tr
 from datetime import date
 from rich import print
@@ -18,7 +18,7 @@ def get_file_path():
 
 def get_max_width():
     
-    cols, rows = os.get_terminal_size()
+    cols, rows = shutil.get_terminal_size()
 
     if cols // 2 != 0:
         cols -= 1
