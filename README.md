@@ -49,7 +49,7 @@ $ pip3 install lovesay
 $ git clone https://github.com/ZenithDS/lovesay.git
 $ cd lovesay
 $ poetry build
-$ pip3 install ./dist/lovesay-0.2.5.tar.gz
+$ pip3 install ./dist/lovesay-0.2.6.tar.gz
 ```
 
 ### ❖ Usage 
