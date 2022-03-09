@@ -1,6 +1,6 @@
 from typing import Optional
 import typer
-import lovesay.lovesay as lovesay
+import lovesay.love as lovesay
 
 app = typer.Typer(add_completion=False)
 

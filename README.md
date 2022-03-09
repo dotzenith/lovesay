@@ -106,7 +106,7 @@ I hope that someone else finds a use for this little script as well. Love is a w
 ---
 
 ### ❖ What's New? 
-0.2.5 - Fixed issue with pipes
+0.2.6 - Minor restructuring of files
 
 ---
 
