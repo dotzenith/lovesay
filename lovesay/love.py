@@ -20,9 +20,6 @@ def get_max_width():
     
     cols, rows = shutil.get_terminal_size()
 
-    if cols // 2 != 0:
-        cols -= 1
-    
     return cols
     
 def generate_quote(file_path):
