@@ -11,6 +11,14 @@ from lovesay.colors import colors
 
 def get_file_path():
 
+    '''
+    get_file_path() -> String
+
+    Returns the absolute path to where the quotes file should be stored
+
+    :params - None
+    '''
+
     home = expanduser('~')
     filePath = f"{home}/.config/lovesay/quotes"
     
@@ -18,19 +26,40 @@ def get_file_path():
 
 def get_max_width():
     
+    '''
+    get_file_path() -> int
+
+    Returns the current width of the terminal window
+
+    :params - None
+    '''
+    
     cols, rows = shutil.get_terminal_size()
 
     return cols
     
-def generate_quote(file_path):
+def generate_quote(from_file = True, file_path=get_file_path(), quote=""):
+
+    '''
+    generate_quote(file_path) -> List of Strings
+
+    Returns the quote for the current day as a list of strings 
+    given the path to the quotes file. 
+
+    The quote is broken into smaller segments 
+    based on the width of the terminal window and stored in a list 
     
+    :param from_file - Toggle between generating quote from a file or a given string
+    :param file_path - The absolute path to the quotes file 
+    :param quote - A given quote if from_file is False 
+    '''
+
     file_exists = exists(file_path)
-   
-    if file_exists:
+    maxWidth = get_max_width()
+
+    if from_file and file_exists:
         with open(file_path) as quotesFile:
-            quotes = [ quote.strip() for quote in quotesFile ]
-        
-        maxWidth = get_max_width()
+            quotes = [ quote.strip() for quote in quotesFile ]    
 
         today = date.today()
         todayDate = int(today.strftime("%d"))
@@ -41,13 +70,28 @@ def generate_quote(file_path):
             quotesList = None
         except IndexError:
             quotesList = ["No quote found for today, here's a hug :)"]
-    else: 
+    elif not(from_file): 
+        try:
+            quotesList = tr.wrap(quote, width = (maxWidth - 25))
+        except ValueError:
+            quotesList = None
+    else:
         quotesList = None
 
     return quotesList
 
-def format_quote(quotes_list, colorOne, fg):
+def format_quote(quotes_list, heartOne, fg):
 
+    '''
+    format_quote(quotes_list, heartOne, fg) -> List of Strings
+
+    Formats the quote with hearts around it and a specified foreground color 
+
+    :param quotes_list - A list of strings generated from generate_quote
+    :param heartOne - The heart character which will be wrapped around the quote
+    :param fg - A the foreground color for the quote 
+    '''
+    
     quoteList = ["", "", "", "", ""]
     
     if quotes_list is None:
@@ -59,11 +103,20 @@ def format_quote(quotes_list, colorOne, fg):
 
     if good_width and good_quote_length:
         for q in range(len(quotes_list)):
-            quoteList[q] = f"{colorOne} [{fg}]{quotes_list[q].strip()}[/{fg}] {colorOne}"
+            quoteList[q] = f"{heartOne} [{fg}]{quotes_list[q].strip()}[/{fg}] {heartOne}"
 
     return quoteList
 
 def main(quote, color_name):
+
+    '''
+    main(quote, color_name) -> None
+
+    The main function to print out the heart and the quote
+
+    :param quote - A quote if the user wants to something arbitrary
+    :param color_name - The name of the color scheme to be used for the output 
+    '''
     
     # Setting up the colors
     color_name = color_name.lower()
@@ -82,9 +135,9 @@ def main(quote, color_name):
 
     # Setting up the things needed for the output
     if quote is None:
-        raw_quote = generate_quote(get_file_path())
+        raw_quote = generate_quote(from_file=True, file_path=get_file_path())
     else:
-        raw_quote = [f"{quote}"]
+        raw_quote = generate_quote(from_file=False, quote=quote)
 
     quoteList = format_quote(raw_quote, ONEHEART, theme['fg'])
 
