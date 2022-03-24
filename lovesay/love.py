@@ -6,7 +6,6 @@ from os.path import expanduser, exists
 import shutil 
 import textwrap as tr
 from datetime import date
-from rich import print
 from lovesay.colors import colors
 
 def get_file_path():
@@ -103,7 +102,7 @@ def format_quote(quotes_list, heartOne, fg):
 
     if good_width and good_quote_length:
         for q in range(len(quotes_list)):
-            quoteList[q] = f"{heartOne} [{fg}]{quotes_list[q].strip()}[/{fg}] {heartOne}"
+            quoteList[q] = f"{heartOne} {fg}{quotes_list[q].strip()}\033[0m {heartOne}"
 
     return quoteList
 
@@ -124,14 +123,14 @@ def main(quote, color_name):
         theme = colors[color_name]
     else:
         theme = colors['catppuccin']
-    
+
     # Setting up the hearts 
-    ONEHEART = f"[{theme['colorOne']}]\u2665[/{theme['colorOne']}]"
-    TWOHEART = f"[{theme['colorTwo']}]\u2665[/{theme['colorTwo']}]"
-    THREEHEART = f"[{theme['colorThree']}]\u2665[/{theme['colorThree']}]"
-    FOURHEART = f"[{theme['colorFour']}]\u2665[/{theme['colorFour']}]"
-    FIVEHEART = f"[{theme['colorFive']}]\u2665[/{theme['colorFive']}]"
-    SIXHEART = f"[{theme['colorSix']}]\u2665[/{theme['colorSix']}]"
+    ONEHEART = f"\033[38;2;{theme['colorOne']['R']};{theme['colorOne']['G']};{theme['colorOne']['B']}m\u2665\033[0m"
+    TWOHEART = f"\033[38;2;{theme['colorTwo']['R']};{theme['colorTwo']['G']};{theme['colorTwo']['B']}m\u2665\033[0m"
+    THREEHEART = f"\033[38;2;{theme['colorThree']['R']};{theme['colorThree']['G']};{theme['colorThree']['B']}m\u2665\033[0m"
+    FOURHEART = f"\033[38;2;{theme['colorFour']['R']};{theme['colorFour']['G']};{theme['colorFour']['B']}m\u2665\033[0m"
+    FIVEHEART = f"\033[38;2;{theme['colorFive']['R']};{theme['colorFive']['G']};{theme['colorFive']['B']}m\u2665\033[0m"
+    SIXHEART = f"\033[38;2;{theme['colorSix']['R']};{theme['colorSix']['G']};{theme['colorSix']['B']}m\u2665\033[0m"
 
     # Setting up the things needed for the output
     if quote is None:
@@ -139,7 +138,7 @@ def main(quote, color_name):
     else:
         raw_quote = generate_quote(from_file=False, quote=quote)
 
-    quoteList = format_quote(raw_quote, ONEHEART, theme['fg'])
+    quoteList = format_quote(raw_quote, ONEHEART, f"\033[38;2;{theme['fg']['R']};{theme['fg']['G']};{theme['fg']['B']}m")
 
     bigHeart = f"   {ONEHEART} {ONEHEART}   {ONEHEART} {ONEHEART}   " \
                f"\n {TWOHEART}     {TWOHEART}     {TWOHEART}      {quoteList[0]}" \
@@ -160,3 +159,4 @@ if __name__ == "__main__":
 # I got tired of only using programming for boring old programming assignments so here we are. 
 # I have a long way to go and I guess this is just the starting, I just hope that one day,
 # when I look back this code, I'm actually proud of myself instead of being embarrassed. 
+

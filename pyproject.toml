@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "lovesay"
-version = "0.2.8"
+version = "0.3.0"
 description = "Cowsay, but full of love"
 authors = ["ZenithDS"]
 license = "MIT"
@@ -9,7 +9,6 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.9"
 typer = "^0.4.0"
-rich = "^11.2.0"
 
 [tool.poetry.scripts]
 lovesay = "lovesay.cli:main"

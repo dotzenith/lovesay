@@ -49,7 +49,7 @@ $ pip3 install lovesay
 $ git clone https://github.com/ZenithDS/lovesay.git
 $ cd lovesay
 $ poetry build
-$ pip3 install ./dist/lovesay-0.2.8.tar.gz
+$ pip3 install ./dist/lovesay-0.3.0.tar.gz
 ```
 
 ### ❖ Usage 
@@ -106,7 +106,7 @@ I hope that someone else finds a use for this little script as well. Love is a w
 ---
 
 ### ❖ What's New? 
-0.2.8 - Added documentation and fixes to printing arbitrary quotes
+0.3.0 - Removed the rich library
 
 ---
 
