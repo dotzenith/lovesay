@@ -3,7 +3,6 @@
 
 # Imports to make life easier 
 from os.path import expanduser, exists
-import shutil 
 import textwrap as tr
 from datetime import date
 from lovesay.colors import colors
@@ -23,7 +22,7 @@ def get_file_path():
     
     return filePath
     
-def generate_quote(max_width, from_file=True, file_path=get_file_path(), quote="", ):
+def generate_quote(max_width, from_file=True, file_path=get_file_path(), quote=""):
 
     '''
     generate_quote(file_path) -> List of Strings
@@ -119,9 +118,9 @@ def main(quote, color_name, max_width):
 
     # Setting up the things needed for the output
     if quote is None:
-        raw_quote = generate_quote(from_file=True, file_path=get_file_path(), max_width=max_width)
+        raw_quote = generate_quote(max_width, from_file=True, file_path=get_file_path())
     else:
-        raw_quote = generate_quote(from_file=False, quote=quote, max_width=max_width)
+        raw_quote = generate_quote(max_width, from_file=False, quote=quote)
 
     quoteList = format_quote(raw_quote, ONEHEART, f"\033[38;2;{theme['fg']['R']};{theme['fg']['G']};{theme['fg']['B']}m", max_width)
 
