@@ -3,7 +3,6 @@
 
 # Imports to make life easier 
 from os.path import expanduser, exists
-import shutil 
 import textwrap as tr
 from datetime import date
 from lovesay.colors import colors
@@ -22,22 +21,8 @@ def get_file_path():
     filePath = f"{home}/.config/lovesay/quotes"
     
     return filePath
-
-def get_max_width():
     
-    '''
-    get_file_path() -> int
-
-    Returns the current width of the terminal window
-
-    :params - None
-    '''
-    
-    cols, rows = shutil.get_terminal_size()
-
-    return cols
-    
-def generate_quote(from_file = True, file_path=get_file_path(), quote=""):
+def generate_quote(max_width, from_file=True, file_path=get_file_path(), quote=""):
 
     '''
     generate_quote(file_path) -> List of Strings
@@ -54,7 +39,6 @@ def generate_quote(from_file = True, file_path=get_file_path(), quote=""):
     '''
 
     file_exists = exists(file_path)
-    maxWidth = get_max_width()
 
     if from_file and file_exists:
         with open(file_path) as quotesFile:
@@ -64,14 +48,14 @@ def generate_quote(from_file = True, file_path=get_file_path(), quote=""):
         todayDate = int(today.strftime("%d"))
 
         try:
-            quotesList = tr.wrap(quotes[(todayDate - 1)], width = (maxWidth - 25))
+            quotesList = tr.wrap(quotes[(todayDate - 1)], width = (max_width - 25))
         except ValueError:
             quotesList = None
         except IndexError:
             quotesList = ["No quote found for today, here's a hug :)"]
     elif not(from_file): 
         try:
-            quotesList = tr.wrap(quote, width = (maxWidth - 25))
+            quotesList = tr.wrap(quote, width = (max_width - 25))
         except ValueError:
             quotesList = None
     else:
@@ -79,7 +63,7 @@ def generate_quote(from_file = True, file_path=get_file_path(), quote=""):
 
     return quotesList
 
-def format_quote(quotes_list, heartOne, fg):
+def format_quote(quotes_list, heartOne, fg, max_width):
 
     '''
     format_quote(quotes_list, heartOne, fg) -> List of Strings
@@ -97,7 +81,7 @@ def format_quote(quotes_list, heartOne, fg):
         return quoteList    
 
     # A few logic checks right here to decide if the quote should be printed or not
-    good_width = get_max_width() >= 52
+    good_width = max_width >= 52
     good_quote_length = len(quotes_list) <= 5
 
     if good_width and good_quote_length:
@@ -106,7 +90,7 @@ def format_quote(quotes_list, heartOne, fg):
 
     return quoteList
 
-def main(quote, color_name):
+def main(quote, color_name, max_width):
 
     '''
     main(quote, color_name) -> None
@@ -134,11 +118,11 @@ def main(quote, color_name):
 
     # Setting up the things needed for the output
     if quote is None:
-        raw_quote = generate_quote(from_file=True, file_path=get_file_path())
+        raw_quote = generate_quote(max_width, from_file=True, file_path=get_file_path())
     else:
-        raw_quote = generate_quote(from_file=False, quote=quote)
+        raw_quote = generate_quote(max_width, from_file=False, quote=quote)
 
-    quoteList = format_quote(raw_quote, ONEHEART, f"\033[38;2;{theme['fg']['R']};{theme['fg']['G']};{theme['fg']['B']}m")
+    quoteList = format_quote(raw_quote, ONEHEART, f"\033[38;2;{theme['fg']['R']};{theme['fg']['G']};{theme['fg']['B']}m", max_width)
 
     bigHeart = f"   {ONEHEART} {ONEHEART}   {ONEHEART} {ONEHEART}   " \
                f"\n {TWOHEART}     {TWOHEART}     {TWOHEART}      {quoteList[0]}" \
@@ -151,7 +135,7 @@ def main(quote, color_name):
     print(bigHeart)
 
 if __name__ == "__main__":
-    main("", 'catppuccin')
+    main("", 'catppuccin', 80)
 
 # This marks the end of the script
 
