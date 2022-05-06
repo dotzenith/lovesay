@@ -106,7 +106,7 @@ I hope that someone else finds a use for this little script as well. Love is a w
 ---
 
 ### ❖ What's New? 
-0.3.0 - Removed the rich library
+0.3.1 - Added a max-width flag for large terminals
 
 ---
 
