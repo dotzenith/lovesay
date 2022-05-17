@@ -40,16 +40,16 @@ Note: These requirements only apply if using you're using lovesay to print a dif
 
 > Install from pip
 ```sh
-$ pip3 install lovesay
+pip3 install lovesay
 ```
 
 > Install from source
 - First, install [poetry](https://python-poetry.org/)
 ```sh
-$ git clone https://github.com/ZenithDS/lovesay.git
-$ cd lovesay
-$ poetry build
-$ pip3 install ./dist/lovesay-0.3.0.tar.gz
+git clone https://github.com/ZenithDS/lovesay.git
+cd lovesay
+poetry build
+pip3 install ./dist/lovesay-0.3.1.tar.gz
 ```
 
 ### ❖ Usage 
@@ -57,13 +57,13 @@ $ pip3 install ./dist/lovesay-0.3.0.tar.gz
 lovesay can be used in a similar fashion to cowsay
 
 ```sh
-$ lovesay "Hello World"
+lovesay "Hello World"
 ```
 
 if there is a quotes file in `$HOME/.config/lovesay/`, lovesay can be used without any arguments
 
 ```sh
-$ lovesay
+lovesay
 ```
 
 lovesay can also be used with a variety of different color schemes.
@@ -72,11 +72,11 @@ lovesay can also be used with a variety of different color schemes.
 
 For example:
 ```sh
-$ lovesay # uses catppuccin
+lovesay # uses catppuccin
 ```
   
 ```sh
-$ lovesay -c nord # uses nord 
+lovesay -c nord # uses nord 
 ```
 
 Supported color schemes as of now: 
