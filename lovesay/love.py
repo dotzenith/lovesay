@@ -10,8 +10,6 @@ from lovesay.colors import colors
 
 def get_file_path() -> str:
     '''
-    get_file_path() -> str
-
     Returns the absolute path to where the quotes file should be stored
 
     :params - None
@@ -33,8 +31,6 @@ def get_file_path() -> str:
 def generate_quote(max_width: int, from_file: bool = True, 
                    file_path: str = get_file_path(), quote: str = "") -> (list[str] | None):
     '''
-    generate_quote(file_path) -> List of Strings
-
     Returns the quote for the current day as a list of strings 
     given the path to the quotes file. 
 
@@ -73,8 +69,6 @@ def generate_quote(max_width: int, from_file: bool = True,
 
 def format_quote(quotes_list: (None | list[str]), heartOne: str, fg: str, max_width: int) -> list[str]:
     '''
-    format_quote(quotes_list, heartOne, fg) -> List of Strings
-
     Formats the quote with hearts around it and a specified foreground color 
 
     :param quotes_list - A list of strings generated from generate_quote
@@ -100,8 +94,6 @@ def format_quote(quotes_list: (None | list[str]), heartOne: str, fg: str, max_wi
 def main(quote: str, color_name: str, max_width: int) -> None:
 
     '''
-    main(quote, color_name) -> None
-
     The main function to print out the heart and the quote
 
     :param quote - A quote if the user wants to something arbitrary
