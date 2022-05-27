@@ -1,3 +1,4 @@
 .DS_Store
 assets/.DS_Store
 dist
+lovesay/__pycache__
