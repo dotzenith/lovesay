@@ -112,7 +112,7 @@ I hope that someone else finds a use for this little script as well. Love is a w
 ---
 
 ### ❖ What's New? 
-0.3.1 - Added a max-width flag for large terminals
+0.3.2 - FEAT: Specify alternative path to quotes file using env variable
 
 ---
 
