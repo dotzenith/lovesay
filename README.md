@@ -60,10 +60,16 @@ lovesay can be used in a similar fashion to cowsay
 lovesay "Hello World"
 ```
 
-if there is a quotes file in `$HOME/.config/lovesay/`, lovesay can be used without any arguments
+if there's a `quotes` file in `$HOME/.config/lovesay/`, lovesay can be used without any arguments
 
 ```sh
 lovesay
+```
+
+if you'd like to use a quotes stored somewhere other than the path above, the `LOVESAY_PATH` env variable can be used as such
+
+```sh
+export LOVESAY_PATH="~/path/to/file"
 ```
 
 lovesay can also be used with a variety of different color schemes.

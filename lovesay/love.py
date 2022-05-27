@@ -2,28 +2,36 @@
 # Lovesay: A script to display a quote from a loved one based on the day of the month
 
 # Imports to make life easier 
-from os.path import expanduser, exists
+from os import getenv
+from os.path import exists, expanduser
 import textwrap as tr
 from datetime import date
 from lovesay.colors import colors
 
-def get_file_path():
-
+def get_file_path() -> str:
     '''
-    get_file_path() -> String
+    get_file_path() -> str
 
     Returns the absolute path to where the quotes file should be stored
 
     :params - None
     '''
+    
+    lovesay_path = getenv('LOVESAY_PATH')
 
-    home = expanduser('~')
-    filePath = f"{home}/.config/lovesay/quotes"
+    if lovesay_path is not None:
+       
+        if '~' in lovesay_path:
+            return expanduser(lovesay_path)
+        
+        return lovesay_path
+
+    filePath = expanduser("~/.config/lovesay/quotes")
     
     return filePath
     
-def generate_quote(max_width, from_file=True, file_path=get_file_path(), quote=""):
-
+def generate_quote(max_width: int, from_file: bool = True, 
+                   file_path: str = get_file_path(), quote: str = "") -> (list[str] | None):
     '''
     generate_quote(file_path) -> List of Strings
 
@@ -63,8 +71,7 @@ def generate_quote(max_width, from_file=True, file_path=get_file_path(), quote="
 
     return quotesList
 
-def format_quote(quotes_list, heartOne, fg, max_width):
-
+def format_quote(quotes_list: (None | list[str]), heartOne: str, fg: str, max_width: int) -> list[str]:
     '''
     format_quote(quotes_list, heartOne, fg) -> List of Strings
 
@@ -90,7 +97,7 @@ def format_quote(quotes_list, heartOne, fg, max_width):
 
     return quoteList
 
-def main(quote, color_name, max_width):
+def main(quote: str, color_name: str, max_width: int) -> None:
 
     '''
     main(quote, color_name) -> None
