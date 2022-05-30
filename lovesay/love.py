@@ -18,11 +18,8 @@ def get_file_path() -> str:
     lovesay_path = getenv('LOVESAY_PATH')
 
     if lovesay_path is not None:
-       
-        if '~' in lovesay_path:
-            return expanduser(lovesay_path)
+        return expanduser(lovesay_path)
         
-        return lovesay_path
 
     filePath = expanduser("~/.config/lovesay/quotes")
     
@@ -86,8 +83,8 @@ def format_quote(quotes_list: (None | list[str]), heartOne: str, fg: str, max_wi
     good_quote_length = len(quotes_list) <= 5
 
     if good_width and good_quote_length:
-        for q in range(len(quotes_list)):
-            quoteList[q] = f"{heartOne} {fg}{quotes_list[q].strip()}\033[0m {heartOne}"
+        for index, _ in enumerate(quotes_list):
+            quoteList[index] = f"{heartOne} {fg}{quotes_list[index].strip()}\033[0m {heartOne}"
 
     return quoteList
 
