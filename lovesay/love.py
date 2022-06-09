@@ -65,7 +65,7 @@ def generate_quote(max_width: int, from_file: bool = True,
 
     return quotesList
 
-def format_quote(quotes_list: (None | list[str]), heartOne: str, fg: str, max_width: int) -> list[str]:
+def format_quote(quotes_list: Optional[list[str]], heartOne: str, fg: str, max_width: int) -> list[str]:
     '''
     Formats the quote with hearts around it and a specified foreground color 
 
@@ -89,7 +89,7 @@ def format_quote(quotes_list: (None | list[str]), heartOne: str, fg: str, max_wi
 
     return quoteList
 
-def main(quote: str, color_name: str, max_width: int) -> None:
+def main(quote: Optional[str], color_name: str, max_width: int) -> None:
 
     '''
     The main function to print out the heart and the quote
