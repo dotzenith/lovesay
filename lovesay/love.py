@@ -7,6 +7,7 @@ from os.path import exists, expanduser
 import textwrap as tr
 from datetime import date
 from lovesay.colors import colors
+from typing import Optional
 
 def get_file_path() -> str:
     '''
@@ -26,7 +27,7 @@ def get_file_path() -> str:
     return filePath
     
 def generate_quote(max_width: int, from_file: bool = True, 
-                   file_path: str = get_file_path(), quote: str = "") -> (list[str] | None):
+                   file_path: str = get_file_path(), quote: str = "") -> Optional[list[str]]:
     '''
     Returns the quote for the current day as a list of strings 
     given the path to the quotes file. 
