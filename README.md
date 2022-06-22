@@ -22,7 +22,7 @@
 
   lovesay is a simple python script that displays a quote from a loved one based on the day of the month or a quote passed in through the cli arguments. 
 
-  <img src="assets/lovesay.gif" alt="lovesay gif">
+  <img src="https://github.com/dotzenith/dotzenith/blob/main/assets/lovesay/lovesay.gif" alt="lovesay gif">
 
 ---
 
