@@ -73,19 +73,22 @@ def format_quote(quotes_list: Optional[list[str]], heartOne: str, fg: str, max_w
     :param heartOne - The heart character which will be wrapped around the quote
     :param fg - A the foreground color for the quote 
     '''
-    
+
     quoteList = ["", "", "", "", ""]
-    
+
     if quotes_list is None:
-        return quoteList    
+        return quoteList
 
-    # A few logic checks right here to decide if the quote should be printed or not
-    good_width = max_width >= 52
-    good_quote_length = len(quotes_list) <= 5
+    # Check terminal width to decide if the quote should be printed
+    good_width = max_width >= 52    
 
-    if good_width and good_quote_length:
+    if good_width:
         for index, _ in enumerate(quotes_list):
-            quoteList[index] = f"{heartOne} {fg}{quotes_list[index].strip()}\033[0m {heartOne}"
+            try:
+                quoteList[index] = f"{heartOne} {fg}{quotes_list[index].strip()}\033[0m {heartOne}"
+            except IndexError:
+                # Append if index goes out of bounds
+                quoteList.append(f"{heartOne} {fg}{quotes_list[index].strip()}\033[0m {heartOne}")
 
     return quoteList
 
@@ -127,6 +130,11 @@ def main(quote: Optional[str], color_name: str, max_width: int) -> None:
                f"\n   {FOURHEART}       {FOURHEART}        {quoteList[2]}" \
                f"\n     {FIVEHEART}   {FIVEHEART}          {quoteList[3]}" \
                f"\n       {SIXHEART}            {quoteList[4]}"
+    
+    # If quoteList spans more than five lines, concatenate bigHeart with remaining lines 
+    if len(quoteList) > 5:
+        for line in quoteList[5:]:
+            bigHeart += f"\n                    {line}"
 
 
     print(bigHeart)
