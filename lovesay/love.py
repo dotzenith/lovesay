@@ -73,19 +73,22 @@ def format_quote(quotes_list: Optional[list[str]], heartOne: str, fg: str, max_w
     :param heartOne - The heart character which will be wrapped around the quote
     :param fg - A the foreground color for the quote 
     '''
-    
-    # Initialize quoteList to allow for varying length if quotes_list is passed
-    quoteList = [''] * 5 if quotes_list is None else []
+
+    quoteList = ["", "", "", "", ""]
 
     if quotes_list is None:
-        return quoteList    
+        return quoteList
 
-    # A few logic checks right here to decide if the quote should be printed or not
-    good_width = max_width >= 52
+    # Check terminal width to decide if the quote should be printed
+    good_width = max_width >= 52    
 
     if good_width:
         for index, _ in enumerate(quotes_list):
-            quoteList.append(f"{heartOne} {fg}{quotes_list[index].strip()}\033[0m {heartOne}")
+            try:
+                quoteList[index] = f"{heartOne} {fg}{quotes_list[index].strip()}\033[0m {heartOne}"
+            except IndexError:
+                # Append if index goes out of bounds
+                quoteList.append(f"{heartOne} {fg}{quotes_list[index].strip()}\033[0m {heartOne}")
 
     return quoteList
 
