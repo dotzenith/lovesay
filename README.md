@@ -49,7 +49,7 @@ pip3 install lovesay
 git clone https://github.com/ZenithDS/lovesay.git
 cd lovesay
 poetry build
-pip3 install ./dist/lovesay-0.3.6.tar.gz
+pip3 install ./dist/lovesay-0.3.7.tar.gz
 ```
 
 ### ❖ Usage 
@@ -111,7 +111,7 @@ I hope that someone else finds a use for this little script as well. Love is a w
 ---
 
 ### ❖ What's New? 
-0.3.6 - Added the ability to print quotes longer than five lines
+0.3.7 - Switched to the `kolorz` package for colored output
 
 ---
 
