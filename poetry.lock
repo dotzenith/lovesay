@@ -1,25 +1,55 @@
 [[package]]
 name = "click"
-version = "8.0.3"
+version = "8.1.3"
 description = "Composable command line interface toolkit"
 category = "main"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 
 [package.dependencies]
 colorama = {version = "*", markers = "platform_system == \"Windows\""}
 
 [[package]]
 name = "colorama"
-version = "0.4.4"
+version = "0.4.5"
 description = "Cross-platform colored terminal text."
 category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
+name = "dotwiz"
+version = "0.3.1"
+description = "DotWiz is a blazing fast dict subclass that enables accessing (nested) keys in dot notation."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+pyheck = "0.1.5"
+
+[[package]]
+name = "kolorz"
+version = "0.2.1"
+description = "A fast, extensible, and kolorful python library to print colored output to the terminal"
+category = "main"
+optional = false
+python-versions = ">=3.9,<4.0"
+
+[package.dependencies]
+dotwiz = ">=0.3.1,<0.4.0"
+
+[[package]]
+name = "pyheck"
+version = "0.1.5"
+description = "Python bindings for heck, the Rust case conversion library"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
 name = "typer"
-version = "0.4.0"
+version = "0.4.1"
 description = "Typer, build great CLIs. Easy to code. Based on Python type hints."
 category = "main"
 optional = false
@@ -31,24 +61,48 @@ click = ">=7.1.1,<9.0.0"
 [package.extras]
 all = ["colorama (>=0.4.3,<0.5.0)", "shellingham (>=1.3.0,<2.0.0)"]
 dev = ["autoflake (>=1.3.1,<2.0.0)", "flake8 (>=3.8.3,<4.0.0)"]
-doc = ["mkdocs (>=1.1.2,<2.0.0)", "mkdocs-material (>=5.4.0,<6.0.0)", "markdown-include (>=0.5.1,<0.6.0)"]
-test = ["shellingham (>=1.3.0,<2.0.0)", "pytest (>=4.4.0,<5.4.0)", "pytest-cov (>=2.10.0,<3.0.0)", "coverage (>=5.2,<6.0)", "pytest-xdist (>=1.32.0,<2.0.0)", "pytest-sugar (>=0.9.4,<0.10.0)", "mypy (==0.910)", "black (>=19.10b0,<20.0b0)", "isort (>=5.0.6,<6.0.0)"]
+doc = ["mkdocs (>=1.1.2,<2.0.0)", "mkdocs-material (>=8.1.4,<9.0.0)", "mdx-include (>=1.4.1,<2.0.0)"]
+test = ["shellingham (>=1.3.0,<2.0.0)", "pytest (>=4.4.0,<5.4.0)", "pytest-cov (>=2.10.0,<3.0.0)", "coverage (>=5.2,<6.0)", "pytest-xdist (>=1.32.0,<2.0.0)", "pytest-sugar (>=0.9.4,<0.10.0)", "mypy (==0.910)", "black (>=22.3.0,<23.0.0)", "isort (>=5.0.6,<6.0.0)"]
 
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "70ea57ffd44aded9128ba110c04e027231605b23503a09cb62f688bd04cc5b80"
+content-hash = "1c5eb097e88c56f8bfcde9357cfde6aafc9a1e1cd08ebeed6e7319fcf8bf154d"
 
 [metadata.files]
 click = [
-    {file = "click-8.0.3-py3-none-any.whl", hash = "sha256:353f466495adaeb40b6b5f592f9f91cb22372351c84caeb068132442a4518ef3"},
-    {file = "click-8.0.3.tar.gz", hash = "sha256:410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b"},
+    {file = "click-8.1.3-py3-none-any.whl", hash = "sha256:bb4d8133cb15a609f44e8213d9b391b0809795062913b383c62be0ee95b1db48"},
+    {file = "click-8.1.3.tar.gz", hash = "sha256:7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"},
 ]
 colorama = [
-    {file = "colorama-0.4.4-py2.py3-none-any.whl", hash = "sha256:9f47eda37229f68eee03b24b9748937c7dc3868f906e8ba69fbcbdd3bc5dc3e2"},
-    {file = "colorama-0.4.4.tar.gz", hash = "sha256:5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"},
+    {file = "colorama-0.4.5-py2.py3-none-any.whl", hash = "sha256:854bf444933e37f5824ae7bfc1e98d5bce2ebe4160d46b5edf346a89358e99da"},
+    {file = "colorama-0.4.5.tar.gz", hash = "sha256:e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4"},
+]
+dotwiz = [
+    {file = "dotwiz-0.3.1-py2.py3-none-any.whl", hash = "sha256:b10e0b0d2c641fcb9547885431f53f8fe0b42cab878b074a2bf52d85a6f18a3d"},
+    {file = "dotwiz-0.3.1.tar.gz", hash = "sha256:b5b4a2aeb122185325c5a88ee7407fc595ca2979fdfc78dacec62b8ed619fbda"},
+]
+kolorz = [
+    {file = "kolorz-0.2.1-py3-none-any.whl", hash = "sha256:3b277eb81e5cdb8c9af2c581006c4f14884fb61eec14635a79fc90ec88dcc9d0"},
+    {file = "kolorz-0.2.1.tar.gz", hash = "sha256:e1503d9c1a7cd31e3b7efdc542e7e8287f8f0b7f0e4e6e147c3f7bb309706fce"},
+]
+pyheck = [
+    {file = "pyheck-0.1.5-cp37-abi3-macosx_10_7_x86_64.whl", hash = "sha256:44caf2b7a49d71fdeb0469e9f35886987ad815a8638b3c5b5c83f351d6aed413"},
+    {file = "pyheck-0.1.5-cp37-abi3-macosx_10_9_x86_64.macosx_11_0_arm64.macosx_10_9_universal2.whl", hash = "sha256:316a842b94beff6e59a97dbcc590e9be92a932e59126b0faa9ac750384f27eaf"},
+    {file = "pyheck-0.1.5-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:5b6169397395ff041f056bfb36c1957a788a1cd7cb967a927fcae7917ff1b6aa"},
+    {file = "pyheck-0.1.5-cp37-abi3-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:e9d101e1c599227280e34eeccab0414246e70a91a1cabb4c4868dca284f2be7d"},
+    {file = "pyheck-0.1.5-cp37-abi3-manylinux_2_17_ppc64.manylinux2014_ppc64.whl", hash = "sha256:69d6509138909df92b2f2f837518dca118ef08ae3c804044ae511b81b7aecb4d"},
+    {file = "pyheck-0.1.5-cp37-abi3-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:8ce4a2e1b4778051b8f31183e321a034603f3957b6e95cf03bf5f231c8ea3066"},
+    {file = "pyheck-0.1.5-cp37-abi3-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:69387b70d910637ab6dc8dc378c8e0b4037cee2c51a9c6f64ce5331b010f5de3"},
+    {file = "pyheck-0.1.5-cp37-abi3-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:0fb50b7d899d2a583ec2ac291b8ec2afb10f0e32c4ac290148d3da15927787f8"},
+    {file = "pyheck-0.1.5-cp37-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:aa8dfd0883212f8495e0bae6eb6ea670c56f9b197b5fe6fb5cae9fd5ec56fb7c"},
+    {file = "pyheck-0.1.5-cp37-abi3-musllinux_1_2_i686.whl", hash = "sha256:e9ba36060abc55127c3813de398b4013c05be6118cfae3cfa3d978f7b4c84dea"},
+    {file = "pyheck-0.1.5-cp37-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:64201a6d213bec443aeb33f66c60cea61aaf6257e48a19159ac69a5afad4768e"},
+    {file = "pyheck-0.1.5-cp37-abi3-win32.whl", hash = "sha256:1501fcfd15f7c05c6bfe38915f5e514ac95fc63e945f7d8b089d30c1b8fdb2c5"},
+    {file = "pyheck-0.1.5-cp37-abi3-win_amd64.whl", hash = "sha256:e519f80a0ef87a8f880bfdf239e396e238dcaed34bec1ea7ef526c4873220e82"},
+    {file = "pyheck-0.1.5.tar.gz", hash = "sha256:5c9fe372d540c5dbcb76bf062f951d998d0e14c906c842a52f1cd5de208e183a"},
 ]
 typer = [
-    {file = "typer-0.4.0-py3-none-any.whl", hash = "sha256:d81169725140423d072df464cad1ff25ee154ef381aaf5b8225352ea187ca338"},
-    {file = "typer-0.4.0.tar.gz", hash = "sha256:63c3aeab0549750ffe40da79a1b524f60e08a2cbc3126c520ebf2eeaf507f5dd"},
+    {file = "typer-0.4.1-py3-none-any.whl", hash = "sha256:e8467f0ebac0c81366c2168d6ad9f888efdfb6d4e1d3d5b4a004f46fa444b5c3"},
+    {file = "typer-0.4.1.tar.gz", hash = "sha256:5646aef0d936b2c761a10393f0384ee6b5c7fe0bb3e5cd710b17134ca1d99cff"},
 ]

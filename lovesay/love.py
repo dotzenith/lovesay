@@ -6,7 +6,7 @@ from os import getenv
 from os.path import exists, expanduser
 import textwrap as tr
 from datetime import date
-from lovesay.colors import colors
+from kolorz.kolor import make_kolorz, get_all_colorschemes
 from typing import Optional
 
 def get_file_path() -> str:
@@ -103,18 +103,18 @@ def main(quote: Optional[str], color_name: str, max_width: int) -> None:
     
     # Setting up the colors
     color_name = color_name.lower()
-    if color_name in colors.keys():
-        theme = colors[color_name]
+    if color_name in get_all_colorschemes():
+        theme = make_kolorz(color_name)
     else:
-        theme = colors['catppuccin']
+        theme = make_kolorz('catppuccin mocha')
 
     # Setting up the hearts 
-    ONEHEART = f"\033[38;2;{theme['colorOne']['R']};{theme['colorOne']['G']};{theme['colorOne']['B']}m\u2665\033[0m"
-    TWOHEART = f"\033[38;2;{theme['colorTwo']['R']};{theme['colorTwo']['G']};{theme['colorTwo']['B']}m\u2665\033[0m"
-    THREEHEART = f"\033[38;2;{theme['colorThree']['R']};{theme['colorThree']['G']};{theme['colorThree']['B']}m\u2665\033[0m"
-    FOURHEART = f"\033[38;2;{theme['colorFour']['R']};{theme['colorFour']['G']};{theme['colorFour']['B']}m\u2665\033[0m"
-    FIVEHEART = f"\033[38;2;{theme['colorFive']['R']};{theme['colorFive']['G']};{theme['colorFive']['B']}m\u2665\033[0m"
-    SIXHEART = f"\033[38;2;{theme['colorSix']['R']};{theme['colorSix']['G']};{theme['colorSix']['B']}m\u2665\033[0m"
+    ONEHEART = f"{theme.red}\u2665{theme.end}"
+    TWOHEART = f"{theme.purple}\u2665{theme.end}"
+    THREEHEART = f"{theme.blue}\u2665{theme.end}"
+    FOURHEART = f"{theme.green}\u2665{theme.end}"
+    FIVEHEART = f"{theme.orange}\u2665{theme.end}"
+    SIXHEART = f"{theme.yellow}\u2665{theme.end}"
 
     # Setting up the things needed for the output
     if quote is None:
@@ -122,7 +122,7 @@ def main(quote: Optional[str], color_name: str, max_width: int) -> None:
     else:
         raw_quote = generate_quote(max_width, from_file=False, quote=quote)
 
-    quoteList = format_quote(raw_quote, ONEHEART, f"\033[38;2;{theme['fg']['R']};{theme['fg']['G']};{theme['fg']['B']}m", max_width)
+    quoteList = format_quote(raw_quote, ONEHEART, str(theme.white), max_width)
 
     bigHeart = f"   {ONEHEART} {ONEHEART}   {ONEHEART} {ONEHEART}   " \
                f"\n {TWOHEART}     {TWOHEART}     {TWOHEART}      {quoteList[0]}" \
@@ -140,7 +140,7 @@ def main(quote: Optional[str], color_name: str, max_width: int) -> None:
     print(bigHeart)
 
 if __name__ == "__main__":
-    main("", 'catppuccin', 80)
+    main("", 'catppuccin mocha', 80)
 
 # This marks the end of the script
 

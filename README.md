@@ -74,7 +74,7 @@ export LOVESAY_PATH="~/path/to/file"
 
 lovesay can also be used with a variety of different color schemes.
 
-> lovesay uses [catppuccin](https://github.com/catppuccin) as it's default color scheme, but a different one can be specified using the `--color` option. 
+> lovesay uses [catppuccin](https://github.com/catppuccin)(mocha) as it's default color scheme, but a different one can be specified using the `--color` option. 
 
 For example:
 ```sh
@@ -86,13 +86,12 @@ lovesay -c nord # uses nord
 ```
 
 Supported color schemes as of now: 
-- [catppuccin](https://github.com/catppuccin)
+- [catppuccin](https://github.com/catppuccin) - latte, frappe, macchiato, mocha
 - [nord](https://github.com/arcticicestudio/nord)
 - [dracula](https://github.com/dracula/dracula-theme)
 - [gruvbox](https://github.com/morhetz/gruvbox)
 - [onedark](https://github.com/joshdick/onedark.vim)
 - [tokyonight](https://github.com/folke/tokyonight.nvim)
-- [rose pine](https://rosepinetheme.com/)
 - [ayu](https://github.com/ayu-theme)
 - [palenight](https://github.com/drewtempelmeyer/palenight.vim)
 - [gogh](https://github.com/Mayccoll/Gogh)
