@@ -10,7 +10,7 @@
 
    <img src="https://img.shields.io/github/repo-size/dotzenith/lovesay?color=ABE9B3&labelColor=302D41&style=for-the-badge">
    
-   <img src="https://img.shields.io/github/commit-activity/y/dotzenith/lovesay?color=96CDFB&labelColor=302D41&style=for-the-badge"/>
+   <img src="https://img.shields.io/github/commit-activity/y/dotzenith/lovesay?color=96CDFB&labelColor=302D41&style=for-the-badge&label=COMMITS"/>
    <br>
 </div>
 
