@@ -4,7 +4,6 @@
 import textwrap as tr
 from datetime import date
 
-# Imports to make life easier
 from os import getenv
 from os.path import exists, expanduser
 from typing import Optional
