@@ -31,7 +31,7 @@
 Note: These requirements only apply if using you're using lovesay to print a different quote for each day of the month.  
 
 - A quotes file stored in `$HOME/.config/lovesay/`
-- Each quote must be on a new line, see the example quotes file in `.config/lovesay/quotes`
+- Each quote must be on a new line, see the example quotes file in `.example/quotes`
 - (optional) A partner to write you 31 lines full of love, one for each day of the month
 
 ---
@@ -46,7 +46,7 @@ pip3 install lovesay
 > Install from source
 - First, install [poetry](https://python-poetry.org/)
 ```sh
-git clone https://github.com/ZenithDS/lovesay.git
+git clone https://github.com/dotzenith/lovesay.git
 cd lovesay
 poetry build
 pip3 install ./dist/lovesay-0.3.8.tar.gz
