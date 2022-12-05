@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "lovesay"
-version = "0.3.8"
+version = "0.3.9"
 description = "Cowsay, but full of love"
-authors = ["ZenithDS"]
+authors = ["dotzenith"]
 license = "MIT"
 readme = "README.md"
 
