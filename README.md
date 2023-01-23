@@ -49,7 +49,7 @@ pip3 install lovesay
 git clone https://github.com/dotzenith/lovesay.git
 cd lovesay
 poetry build
-pip3 install ./dist/lovesay-0.3.9.tar.gz
+pip3 install ./dist/lovesay-0.3.10.tar.gz
 ```
 
 ### ❖ Usage 
