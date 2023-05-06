@@ -118,12 +118,12 @@ def main(quote: Optional[str], color_name: str, max_width: int) -> None:
         theme = make_kolorz("catppuccin mocha")
 
     # Setting up the hearts
-    ONEHEART = f"{theme.red}\u2665{theme.end}"
-    TWOHEART = f"{theme.purple}\u2665{theme.end}"
-    THREEHEART = f"{theme.blue}\u2665{theme.end}"
-    FOURHEART = f"{theme.green}\u2665{theme.end}"
-    FIVEHEART = f"{theme.orange}\u2665{theme.end}"
-    SIXHEART = f"{theme.yellow}\u2665{theme.end}"
+    ONEHEART = f"{theme.red}\uf004{theme.end}"
+    TWOHEART = f"{theme.purple}\uf004{theme.end}"
+    THREEHEART = f"{theme.blue}\uf004{theme.end}"
+    FOURHEART = f"{theme.green}\uf004{theme.end}"
+    FIVEHEART = f"{theme.orange}\uf004{theme.end}"
+    SIXHEART = f"{theme.yellow}\uf004{theme.end}"
 
     # Setting up the things needed for the output
     if quote is None:

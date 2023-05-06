@@ -111,7 +111,7 @@ I hope that someone else finds a use for this little script as well. Love is a w
 ---
 
 ### ❖ What's New? 
-0.3.10 - Dependency updates
+0.3.11 - Updates to the heart emoji
 
 ---
 
