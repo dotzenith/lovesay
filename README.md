@@ -18,6 +18,18 @@
 
 ---
 
+## ❖ IMPORTANT!
+
+lovesay has been superseded by [lovesay.rs](https://github.com/dotzenith/lovesay.rs)!
+
+[lovesay.rs](https://github.com/dotzenith/lovesay.rs) is a much cleaner and feature complete version of lovesay written in rust (I fell for "rewrite it in rust") and will likely be the only version to receive any future updates.
+
+It has ALL of the features that lovesay does and also adds proper support for pipes and a better way to pass in quotes through the cli.
+
+With that said, this is the original version of lovesay written with a lot of love, feel free to use this one as well :)
+
+---
+
 ### ❖ Information 
 
   lovesay is a simple python script that displays a quote from a loved one based on the day of the month or a quote passed in through the cli arguments. 
